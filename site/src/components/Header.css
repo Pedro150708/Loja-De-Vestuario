@@ -1,0 +1,170 @@
+.montclair-header {
+  background: #f3efea;
+  width: 100%;
+}
+
+/* Logo */
+
+.logo-text {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 4rem;
+  font-weight: 500;
+  letter-spacing: 6px;
+  color: #7a233f;
+  margin: 0;
+}
+
+/* Botões circulares */
+
+.header-circle-btn {
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  color: #222;
+  font-size: 1.1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.3s;
+}
+
+.header-circle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,.08);
+}
+
+/* Badge carrinho */
+
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -3px;
+
+  width: 20px;
+  height: 20px;
+
+  border-radius: 50%;
+
+  background: #8b173e;
+  color: white;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Pesquisa */
+
+.search-wrapper {
+  background: white;
+  border-radius: 50px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 20px;
+  height: 52px;
+
+  box-shadow: 0 1px 5px rgba(0,0,0,.03);
+}
+
+.search-icon {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+
+  width: 100%;
+  padding-left: 12px;
+
+  background: transparent;
+  font-size: 1rem;
+}
+
+.search-input::placeholder {
+  color: #999;
+}
+
+/* Benefícios */
+
+.benefits-bar {
+  background: white;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  padding: 15px 20px;
+  flex-wrap: wrap;
+
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 0.95rem;
+  color: #333;
+
+  font-weight: 500;
+}
+
+.benefit-item i {
+  font-size: 1.1rem;
+}
+
+/* Responsivo */
+
+@media (max-width: 992px) {
+
+  .logo-text {
+    font-size: 2.8rem;
+    letter-spacing: 3px;
+  }
+
+  .benefits-bar {
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .benefit-item {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .logo-text {
+    font-size: 2rem;
+  }
+
+  .header-circle-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .benefits-bar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    text-align: center;
+  }
+
+  .benefit-item {
+    justify-content: center;
+    flex-direction: column;
+  }
+}
