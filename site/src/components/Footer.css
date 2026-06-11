@@ -1,5 +1,5 @@
 .footer-custom {
-  background-color: #57071b;
+  background-color: #4f0f1f;
   color: white;
   width: 100%;
 }
@@ -55,5 +55,5 @@
 }
 
 .fw-bold, .footer-title, .bi{
-    color: rgb(230, 186, 64);
+    color: rgb(220, 186, 94);
 }

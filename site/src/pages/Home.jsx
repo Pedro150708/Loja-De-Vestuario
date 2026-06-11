@@ -4,6 +4,7 @@ import api from "../services/api";
 
 import HeroBanner from "../components/HeroBanner";
 import ProductCard from "../components/ProductCard";
+import "./Home.css";
 
 function Home() {
 
