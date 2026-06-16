@@ -1,3 +1,25 @@
+.navbar-mobile {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-mobile li {
+  margin-bottom: 18px;
+}
+
+.navbar-mobile a {
+  text-decoration: none;
+  color: #2f2f2f;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.navbar-mobile a:hover {
+  color: #b48a5a;
+}
+
 /* ===========================
    Badge do carrinho
 =========================== */
@@ -34,7 +56,7 @@
   background: #f3efea;
   width: 100%;
   overflow-x: hidden;
-  height: 270px;
+  min-height: 190px;
 }
 
 .montclair-header .container-fluid {
@@ -240,13 +262,17 @@
 }
 
 /* ===========================
-   Responsividade
+   Responsividade Tablet
 =========================== */
 
 @media (max-width: 992px) {
 
+  .montclair-header {
+    height: auto;
+  }
+
   .logo-text {
-    font-size: 2rem;
+    font-size: 1.8rem;
     letter-spacing: 2px;
   }
 
@@ -254,9 +280,21 @@
     gap: 1rem;
   }
 
+  .benefits-bar {
+    gap: 10px;
+  }
 }
 
+
+/* ===========================
+   Responsividade Celular
+=========================== */
+
 @media (max-width: 768px) {
+
+  .montclair-header {
+    height: auto;
+  }
 
   .montclair-header .container-fluid {
     padding-left: 10px;
@@ -264,44 +302,90 @@
   }
 
   .logo-text {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     letter-spacing: 1px;
   }
 
   .header-circle-btn {
-    width: 36px;
-    height: 36px;
+    width: 34px;
+    height: 34px;
   }
 
   .header-circle-btn i {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
   .search-wrapper {
     height: 38px;
+    margin-top: 10px;
+  }
+
+  .search-input {
+    font-size: 0.85rem;
   }
 
   .header-nav {
-    gap: 0.8rem;
-    padding: 8px 10px;
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    gap: 0.7rem;
+
+    padding: 10px;
   }
 
   .header-nav a {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   .benefits-bar {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    gap: 8px;
 
-    gap: 12px;
+    padding: 10px;
   }
 
   .benefit-item {
-    flex-direction: column;
+    justify-content: center;
     text-align: center;
 
     white-space: normal;
+    font-size: 0.75rem;
+  }
+}
+
+
+/* ===========================
+   Celulares Pequenos
+=========================== */
+
+@media (max-width: 480px) {
+
+  .logo-text {
+    font-size: 1.1rem;
+  }
+
+  .header-circle-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .header-circle-btn i {
+    font-size: 0.8rem;
+  }
+
+  .header-nav a {
+    font-size: 0.75rem;
+  }
+
+  .search-wrapper {
+    height: 35px;
+    padding: 0 12px;
+  }
+
+  .search-input {
+    font-size: 0.8rem;
   }
 
 }

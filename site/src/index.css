@@ -15,3 +15,99 @@ html,
 body {
   overflow-x: hidden;
 }
+
+
+
+
+
+/*=====================
+Modo escuro
+=====================*/
+body {
+  background-color: #ffffff;
+  color: #222;
+  transition: all 0.3s ease;
+}
+
+body.dark-mode {
+  background-color: #470818;
+  color: #f5f5f5;
+}
+
+body.dark-mode .benefits-bar{
+  background-color: #989898;
+}
+
+body.dark-mode .logo-text, .card-product-price{
+  color: #ccb649;
+}
+
+body.dark-mode .btn-add-to-cart{
+  background: #bc8c33;
+  color: #181818;
+}
+
+body.dark-mode .card-product-name, .card-product-subtext{
+  color: #ddd;
+}
+
+body.dark-mode .card-size-badge, .card-quantity-selector, .qty-display-value, .qty-action-btn{
+  background-color: #460c1a;
+  color: #ffffff;
+}
+
+body.dark-mode .montclair-header {
+  background: #1e1e1e;
+  color: white;
+}
+
+body.dark-mode .custom-product-card{
+  background-color: #340f18;
+  border: none;
+}
+
+body.dark-mode .header-nav a {
+  color: #f5f5f5;
+}
+
+body.dark-mode .search-wrapper {
+  background: #2b2b2b;
+  border-color: #444;
+}
+
+body.dark-mode .search-input {
+  color: white;
+  background: transparent;
+}
+
+body.dark-mode .header-circle-btn {
+  background: #2b2b2b;
+  color: white;
+}
+
+body.dark-mode .product-card {
+  background: #1f1f1f;
+  color: white;
+}
+
+body.dark-mode .product-card p {
+  color: #ddd;
+}
+
+body.dark-mode footer {
+  background: #181818;
+  color: white;
+}
+
+body.dark-mode .hero {
+  filter: brightness(0.85);
+}
+
+body.dark-mode .offcanvas{
+  background-color: #222;
+  color: #bc8c33;
+}
+
+body.dark-mode .navbar-mobile{
+  color: white;
+}

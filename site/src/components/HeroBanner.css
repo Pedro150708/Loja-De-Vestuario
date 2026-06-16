@@ -1,7 +1,8 @@
 .hero {
   position: relative;
-  height: 400px;
+  height: clamp(320px, 75vh, 520px);
   overflow: hidden;
+  margin-bottom: 5%;
 }
 
 .montclair-header {
@@ -154,8 +155,8 @@
 @media (max-width: 768px) {
 
   .hero {
-    height: 60vh;
-    min-height: 450px;
+    height: 45vh;
+    min-height: 250px;
   }
 
   .hero-content h1 {
