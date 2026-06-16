@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  height: clamp(400px, 55vh, 550px);
+  height: clamp(320px, 45vh, 450px);
   overflow: hidden;
 }
 
@@ -32,6 +32,31 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.indicator {
+  width: 10px !important;
+  height: 10px !important;
+
+  min-width: 10px;
+  min-height: 10px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  background: rgba(255,255,255,.5);
+
+  transition: .3s;
+}
+
+.indicator.active {
+  background: white;
+  transform: scale(1.25);
 }
 
 .hero-content {

@@ -7,11 +7,11 @@ export default function Header() {
       <header className="montclair-header">
 
         {/* Topo */}
-        <div className="container-fluid py-4">
+        <div className="container-fluid py-3">
           <div className="row align-items-center">
 
             {/* Esquerda */}
-            <div className="col-3">
+            <div className="col-4 col-md-3">
               <div className="d-flex gap-3">
                 <button className="header-circle-btn">
                   <i className="bi bi-three-dots"></i>
@@ -24,7 +24,7 @@ export default function Header() {
             </div>
 
             {/* Logo */}
-            <div className="col-6 text-center">
+            <div className="col-4 col-md-6 text-center">
               <Link to="/" className="logo-link">
                 <h1 className="logo-text">
                   MONTCLAIR
@@ -33,7 +33,7 @@ export default function Header() {
             </div>
 
             {/* Direita */}
-            <div className="col-3">
+            <div className="col-4 col-md-3">
               <div className="d-flex justify-content-end gap-3">
 
                 <Link to="/favoritos" className="header-circle-btn">

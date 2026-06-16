@@ -4,7 +4,7 @@ import "./HeroBanner.css";
 const banners = [
   {
     imagem: "banner1.webp",
-    titulo: "Coleção Outono Inverno",
+    titulo: "Coleção Exclusiva",
     subtitulo: "Elegância para todas as ocasiões",
   },
   {

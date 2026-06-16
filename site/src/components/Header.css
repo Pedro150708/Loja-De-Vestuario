@@ -1,106 +1,109 @@
+.cart-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+
+  border-radius: 999px;
+
+  background: #7a233f;
+  color: white;
+
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 2px solid white;
+}
+
+/* Header principal */
+
 .montclair-header {
   background: #f3efea;
   width: 100%;
+  overflow-x: hidden;
+}
+
+.montclair-header .container-fluid {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 /* Logo */
 
+.logo-link {
+  text-decoration: none;
+}
+
 .logo-text {
   font-family: "Cormorant Garamond", serif;
-  font-size: 4rem;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
   font-weight: 500;
-  letter-spacing: 6px;
+  letter-spacing: 4px;
   color: #7a233f;
   margin: 0;
 }
 
-.logo-link {
-  text-decoration: none;
-  color: inherit;
-}
-
-.header-nav {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  padding: 20px 0;
-}
-
-.header-nav a {
-  text-decoration: none;
-  color: #222;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.header-nav a:hover {
-  color: #0d3b66; /* azul profundo */
-}
-
-/* Botões circulares */
+/* Botões */
 
 .header-circle-btn {
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
+
   border: none;
   border-radius: 50%;
-  background: #fff;
-  color: #222;
-  font-size: 1.1rem;
+
+  background: white;
+  color: #333;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  transition: 0.3s;
+  text-decoration: none;
+
+  box-shadow: 0 2px 8px rgba(0,0,0,.05);
+
+  transition: .25s;
+}
+
+.header-circle-btn i {
+  font-size: 1.1rem;
 }
 
 .header-circle-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0,0,0,.08);
-}
-
-/* Badge carrinho */
-
-.cart-badge {
-  position: absolute;
-  top: -5px;
-  right: -3px;
-
-  width: 20px;
-  height: 20px;
-
-  border-radius: 50%;
-
-  background: #8b173e;
-  color: white;
-
-  font-size: 12px;
-  font-weight: 600;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,.08);
+  color: #333;
 }
 
 /* Pesquisa */
 
 .search-wrapper {
   background: white;
-  border-radius: 50px;
+
+  height: 48px;
+
+  border-radius: 999px;
 
   display: flex;
   align-items: center;
 
   padding: 0 20px;
-  height: 52px;
 
-  box-shadow: 0 1px 5px rgba(0,0,0,.03);
+  box-shadow: 0 2px 12px rgba(0,0,0,.06);
 }
 
 .search-icon {
-  font-size: 1.2rem;
-  color: #666;
+  color: #777;
 }
 
 .search-input {
@@ -108,14 +111,70 @@
   outline: none;
 
   width: 100%;
-  padding-left: 12px;
 
   background: transparent;
-  font-size: 1rem;
+
+  padding-left: 12px;
+
+  font-size: .95rem;
 }
 
 .search-input::placeholder {
   color: #999;
+}
+
+/* Navegação */
+
+.header-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 2rem;
+
+  padding: 18px 20px;
+
+  background: white;
+
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: #333;
+
+  font-weight: 500;
+  font-size: .95rem;
+
+  position: relative;
+
+  transition: .2s;
+}
+
+.header-nav a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 0;
+  height: 2px;
+
+  background: #7a233f;
+
+  transition: .2s;
+}
+
+.header-nav a:hover {
+  color: #7a233f;
+}
+
+.header-nav a:hover::after {
+  width: 100%;
 }
 
 /* Benefícios */
@@ -124,70 +183,91 @@
   background: white;
 
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-
-  padding: 15px 20px;
   flex-wrap: wrap;
 
-  border-top: 1px solid #eee;
+  gap: 20px;
+
+  padding: 8px 15px;
+
   border-bottom: 1px solid #eee;
 }
 
 .benefit-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 
-  font-size: 0.95rem;
-  color: #333;
+  white-space: nowrap;
 
-  font-weight: 500;
+  font-size: .85rem;
+  color: #555;
 }
 
 .benefit-item i {
-  font-size: 1.1rem;
+  color: #7a233f;
 }
 
-/* Responsivo */
+/* Indicadores do Bootstrap */
+
+.carousel-indicators [data-bs-target] {
+  width: 10px !important;
+  height: 10px !important;
+
+  border-radius: 50%;
+
+  margin: 0 5px;
+}
+
+/* Responsividade */
 
 @media (max-width: 992px) {
 
   .logo-text {
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     letter-spacing: 3px;
   }
 
-  .benefits-bar {
-    gap: 15px;
-    justify-content: center;
+  .header-nav {
+    gap: 1rem;
   }
 
-  .benefit-item {
-    font-size: 0.85rem;
-  }
 }
 
 @media (max-width: 768px) {
 
+  .montclair-header .container-fluid {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
   .logo-text {
-    font-size: 2rem;
+    font-size: 1.7rem;
+    letter-spacing: 2px;
   }
 
   .header-circle-btn {
-    width: 42px;
-    height: 42px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .header-circle-btn i {
+    font-size: 1rem;
   }
 
   .benefits-bar {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+
     gap: 15px;
-    text-align: center;
   }
 
   .benefit-item {
-    justify-content: center;
     flex-direction: column;
+    text-align: center;
+
+    white-space: normal;
   }
+
 }
