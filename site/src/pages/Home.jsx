@@ -40,35 +40,18 @@ function Home() {
     <>
       <HeroBanner />
 
-      <section className="container py-5">
-
-        <h2 className="mb-4">
-          Produtos em Destaque
-        </h2>
-
+      <section className="Produtos">
         {loading ? (
-
           <p>Carregando...</p>
-
         ) : (
-
           <div className="row g-4">
-
-            {produtos.map(produto => (
-
-              <div
-                key={produto.id}
-                className="col-lg-3 col-md-6"
-              >
+            {produtos.map((produto) => (
+              <div key={produto.id} className="col-lg-3 col-md-6">
                 <ProductCard produto={produto} />
               </div>
-
             ))}
-
           </div>
-
         )}
-
       </section>
     </>
   );
