@@ -1,3 +1,7 @@
+/* ===========================
+   Badge do carrinho
+=========================== */
+
 .cart-badge {
   position: absolute;
   top: -5px;
@@ -22,12 +26,15 @@
   border: 2px solid white;
 }
 
-/* Header principal */
+/* ===========================
+   Header principal
+=========================== */
 
 .montclair-header {
   background: #f3efea;
   width: 100%;
   overflow-x: hidden;
+  height: 270px;
 }
 
 .montclair-header .container-fluid {
@@ -37,7 +44,9 @@
   padding-right: 15px;
 }
 
-/* Logo */
+/* ===========================
+   Logo
+=========================== */
 
 .logo-link {
   text-decoration: none;
@@ -45,18 +54,20 @@
 
 .logo-text {
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-size: clamp(1.6rem, 2.5vw, 2.3rem);
   font-weight: 500;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   color: #7a233f;
   margin: 0;
 }
 
-/* Botões */
+/* ===========================
+   Botões
+=========================== */
 
 .header-circle-btn {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
 
   border: none;
   border-radius: 50%;
@@ -76,7 +87,7 @@
 }
 
 .header-circle-btn i {
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 .header-circle-btn:hover {
@@ -85,21 +96,23 @@
   color: #333;
 }
 
-/* Pesquisa */
+/* ===========================
+   Pesquisa
+=========================== */
 
 .search-wrapper {
   background: white;
 
-  height: 48px;
+  height: 42px;
 
   border-radius: 999px;
 
   display: flex;
   align-items: center;
 
-  padding: 0 20px;
+  padding: 0 18px;
 
-  box-shadow: 0 2px 12px rgba(0,0,0,.06);
+  box-shadow: 0 2px 10px rgba(0,0,0,.05);
 }
 
 .search-icon {
@@ -107,23 +120,25 @@
 }
 
 .search-input {
+  width: 100%;
+
   border: none;
   outline: none;
 
-  width: 100%;
-
   background: transparent;
 
-  padding-left: 12px;
+  padding-left: 10px;
 
-  font-size: .95rem;
+  font-size: 0.9rem;
 }
 
 .search-input::placeholder {
   color: #999;
 }
 
-/* Navegação */
+/* ===========================
+   Navegação
+=========================== */
 
 .header-nav {
   display: flex;
@@ -131,9 +146,9 @@
   align-items: center;
   flex-wrap: wrap;
 
-  gap: 2rem;
+  gap: 1.8rem;
 
-  padding: 18px 20px;
+  padding: 10px 20px;
 
   background: white;
 
@@ -159,7 +174,7 @@
   position: absolute;
 
   left: 0;
-  bottom: -6px;
+  bottom: -5px;
 
   width: 0;
   height: 2px;
@@ -177,7 +192,9 @@
   width: 100%;
 }
 
-/* Benefícios */
+/* ===========================
+   Benefícios
+=========================== */
 
 .benefits-bar {
   background: white;
@@ -187,9 +204,9 @@
   align-items: center;
   flex-wrap: wrap;
 
-  gap: 20px;
+  gap: 18px;
 
-  padding: 8px 15px;
+  padding: 5px 12px;
 
   border-bottom: 1px solid #eee;
 }
@@ -197,36 +214,40 @@
 .benefit-item {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+
+  font-size: .8rem;
+  color: #555;
 
   white-space: nowrap;
-
-  font-size: .85rem;
-  color: #555;
 }
 
 .benefit-item i {
   color: #7a233f;
 }
 
-/* Indicadores do Bootstrap */
+/* ===========================
+   Carousel Bootstrap
+=========================== */
 
 .carousel-indicators [data-bs-target] {
   width: 10px !important;
   height: 10px !important;
 
-  border-radius: 50%;
-
   margin: 0 5px;
+
+  border-radius: 50%;
 }
 
-/* Responsividade */
+/* ===========================
+   Responsividade
+=========================== */
 
 @media (max-width: 992px) {
 
   .logo-text {
-    font-size: 2.4rem;
-    letter-spacing: 3px;
+    font-size: 2rem;
+    letter-spacing: 2px;
   }
 
   .header-nav {
@@ -243,24 +264,37 @@
   }
 
   .logo-text {
-    font-size: 1.7rem;
-    letter-spacing: 2px;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
   }
 
   .header-circle-btn {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
   }
 
   .header-circle-btn i {
-    font-size: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .search-wrapper {
+    height: 38px;
+  }
+
+  .header-nav {
+    gap: 0.8rem;
+    padding: 8px 10px;
+  }
+
+  .header-nav a {
+    font-size: 0.85rem;
   }
 
   .benefits-bar {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
-    gap: 15px;
+    gap: 12px;
   }
 
   .benefit-item {
