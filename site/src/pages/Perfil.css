@@ -1,0 +1,145 @@
+.profile-body {
+  --bg-profile: #f4f0ea;       /* Bege sofisticado */
+  --card-profile: #ffffff;     /* Branco */
+  --text-dark: #3d0c11;        /* Vinho escuro */
+  --text-light: #5c534c;       /* Marrom quente */
+  --vinho-brand: #721c24;      /* Vinho imponente */
+  --bege-gold: #c5a880;        /* Bege dourado */
+
+  background-color: var(--bg-profile);
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Cinzel', 'Playfair Display', serif;
+  padding: 20px;
+}
+
+/* Se o body global estiver em Dark Mode, o perfil se adapta automaticamente */
+.dark-mode .profile-body {
+  --bg-profile: #1a0f11;       /* Vinho ultra escuro */
+  --card-profile: #261618;     /* Vinho fechado */
+  --text-dark: #f4f0ea;        /* Bege claro */
+  --text-light: #c5bcae;       /* Bege médio */
+  --vinho-brand: #c5a880;      /* Dourado vira a cor principal */
+}
+
+.profile-container {
+  background-color: var(--card-profile);
+  width: 100%;
+  max-width: 480px;
+  padding: 40px 30px;
+  border-radius: 4px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  border: 1px solid var(--bege-gold);
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.avatar-placeholder {
+  width: 70px;
+  height: 70px;
+  background-color: var(--vinho-brand);
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+}
+
+.profile-header h2 {
+  color: var(--text-dark);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.subtitle {
+  color: var(--text-light);
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+/* Card VIP de Presença */
+.vip-card {
+  background: linear-gradient(135deg, var(--vinho-brand), #3d0c11);
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.dark-mode .vip-card {
+  background: linear-gradient(135deg, #3d0c11, #1a0f11);
+  border: 1px solid var(--bege-gold);
+}
+
+.vip-info span, .coupon-box span {
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  display: block;
+  opacity: 0.8;
+}
+
+.vip-info h3 {
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+}
+
+.coupon-code {
+  color: #c5a880;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+/* Itens do Menu */
+.menu-item {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--bege-gold);
+  padding: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: left;
+}
+
+.menu-item:hover {
+  padding-left: 5px;
+  color: var(--vinho-brand);
+  transition: all 0.2s;
+}
+
+.btn-logout {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--text-light);
+  color: var(--text-light);
+  padding: 12px;
+  margin-top: 35px;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.btn-logout:hover {
+  background-color: #ff3b30;
+  color: white;
+  border-color: #ff3b30;
+}
