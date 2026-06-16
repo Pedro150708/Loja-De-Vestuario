@@ -1,62 +1,201 @@
-.login-container {
+/* ==========================================================================
+   CONFIGURAÇÃO DE CORES (Vinho, Bege e Presença)
+   ========================================================================== */
+.auth-body {
+  /* --- MODO NORMAL --- */
+  --bg-page: #f4f0ea;          /* Fundo bege sofisticado */
+  --bg-card: #ffffff;          /* Card limpo */
+  --text-title: #3d0c11;       /* Vinho imponente */
+  --text-body: #5c534c;        /* Marrom quente */
+  --input-bg: #faf8f5;         
+  --input-border: #d9d2c9;     
+  
+  --brand-color: #721c24;      /* Vinho principal */
+  --brand-text: #ffffff;       
+  --accent-color: #c5a880;     /* Bege dourado para links */
+  --card-radius: 4px;          /* Presença: cantos mais retos */
+
+  background-color: var(--bg-page);
+  color: var(--text-body);
+  min-height: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: #f5f5f5;
-  font-family: Arial, sans-serif;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  font-family: 'Cinzel', 'Playfair Display', 'Georgia', serif;
+  letter-spacing: 0.5px;
+  position: relative;
 }
 
-.login-form {
-  background: #ffffff;
-  padding: 40px;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+/* --- MODO DARK --- */
+.auth-body.dark-mode {
+  --bg-page: #1a0f11;          /* Vinho ultra escuro */
+  --bg-card: #261618;          /* Vinho fechado para o card */
+  --text-title: #f4f0ea;       /* Bege para leitura principal */
+  --text-body: #c5bcae;        /* Bege médio */
+  --input-bg: #1f1214;         
+  --input-border: #4d2d31;     
+  
+  --brand-color: #c5a880;      /* Botão ganha o destaque do Bege Dourado */
+  --brand-text: #1a0f11;       /* Texto escuro para contraste */
+  --accent-color: #e6dfd5;     
+}
+
+/* ==========================================================================
+   ESTRUTURA DO CARD
+   ========================================================================== */
+.main-container {
   width: 100%;
-  max-width: 400px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
 }
 
-.login-form h2 {
+.auth-card {
+  background-color: var(--bg-card);
+  width: 100%;
+  max-width: 440px;
+  padding: 50px 40px;
+  border-radius: var(--card-radius);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--input-border);
+  transition: all 0.4s ease;
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.store-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-title);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.form-wrapper {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  color: var(--text-title);
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* ELEMENTOS DE FORMULÁRIO */
+.input-box {
   margin-bottom: 24px;
-  text-align: center;
-  color: #333;
 }
 
-.input-group {
-  margin-bottom: 20px;
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.input-group label {
+label {
   display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-title);
   margin-bottom: 8px;
-  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.input-group input {
+input {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+  padding: 14px 16px;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--text-title);
+  border-radius: var(--card-radius);
+  font-size: 0.95rem;
+  transition: all 0.3s;
 }
 
-.login-btn {
-  width: 100%;
-  padding: 12px;
-  background-color: #007bff;
-  color: white;
+input:focus {
+  outline: none;
+  border-color: var(--brand-color);
+}
+
+/* LINKS E BOTÕES TEXTUAIS */
+.forgot-pass {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.link-btn {
+  background: none;
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  color: var(--brand-color);
+  font-size: 0.85rem;
+  font-weight: 700;
   cursor: pointer;
+  text-decoration: underline;
+  font-family: inherit;
+  letter-spacing: inherit;
 }
 
-.login-btn:hover {
-  background-color: #0056b3;
+/* BOTÃO PRINCIPAL COM PRESENÇA */
+.btn-primary {
+  width: 100%;
+  background-color: var(--brand-color);
+  color: var(--brand-text);
+  border: none;
+  padding: 16px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: var(--card-radius);
+  cursor: pointer;
+  margin-top: 15px;
+  transition: all 0.3s ease;
 }
 
-.login-footer {
-  margin-top: 20px;
+.btn-primary:hover {
+  letter-spacing: 3px;
+  opacity: 0.95;
+}
+
+.switch-notice {
   text-align: center;
-  font-size: 14px;
+  margin-top: 30px;
+  font-size: 0.85rem;
+  color: var(--text-body);
+}
+
+/* ALTERNADOR DE TEMA */
+.theme-toggle-btn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  padding: 10px 18px;
+  background: var(--text-title);
+  color: var(--bg-page);
+  border: 1px solid var(--input-border);
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  z-index: 10;
 }

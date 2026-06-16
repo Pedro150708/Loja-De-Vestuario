@@ -1,55 +1,105 @@
-import React, { useState } from 'react';
-import './Login.css'; // Importando o seu arquivo de estilização
+import { useState } from 'react';
+import './Login.css';
 
-export default function Login() {
-  // Criando os "estados" para armazenar o que o usuário digita
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+export default function AuthScreen() {
+  // Estado para controlar qual formulário está ativo: 'login' ou 'register'
+  const [activeForm, setActiveForm] = useState('login');
+  
+  // Estado para controlar o tema: false = Normal (Light), true = Dark Mode
+  const [isDarkMode, setIsDarkMode] = useState(true);
 
-  // Função que será executada quando o usuário clicar no botão de Entrar
-  const handleSubmit = (event) => {
-    event.preventDefault(); // Impede a página de recarregar
-
-    // Aqui entra a lógica de autenticação (integração com banco de dados/API)
-    console.log('Tentativa de login com:', { email, password });
-    alert(`Login iniciado para o e-mail: ${email}`);
+  // Função para lidar com os envios dos formulários
+  const handleSubmit = (event, type) => {
+    event.preventDefault();
+    if (type === 'login') {
+      alert('Conectando à sua conta...');
+    } else {
+      alert('Conta criada com sucesso!');
+      setActiveForm('login'); // Retorna para o login após cadastrar
+    }
   };
 
   return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Acessar Conta</h2>
+    <div className={`auth-body ${isDarkMode ? 'dark-mode' : ''}`}>
+      
+      {/* Botão de Alternar Tema (Discreto e Elegante) */}
+      <button 
+        className="theme-toggle-btn" 
+        onClick={() => setIsDarkMode(!isDarkMode)}
+      >
+        {isDarkMode ? 'MODO NORMAL' : 'MODO DARK'}
+      </button>
 
-        <div className="input-group">
-          <label htmlFor="email">E-mail</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Digite seu e-mail"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+      <div className="main-container">
+        <div className="auth-card">
+          
+          {/* IDENTIDADE DA LOJA */}
+          <div className="logo-container">
+            <h1 className="store-logo">SUA LOJA</h1>
+          </div>
+
+          {/* FORMULÁRIO DE LOGIN */}
+          {activeForm === 'login' && (
+            <div className="form-wrapper">
+              <h2>Acesse sua conta</h2>
+              <form onSubmit={(e) => handleSubmit(e, 'login')}>
+                <div className="input-box">
+                  <label htmlFor="email-login">E-mail</label>
+                  <input type="email" id="email-login" placeholder="seu@email.com" required />
+                </div>
+                
+                <div className="input-box">
+                  <div className="label-row">
+                    <label htmlFor="password-login">Senha</label>
+                    <a href="#forgot" className="forgot-pass">Esqueceu?</a>
+                  </div>
+                  <input type="password" id="password-login" placeholder="Sua senha" required />
+                </div>
+
+                <button type="submit" className="btn-primary">ENTRAR</button>
+              </form>
+              <p className="switch-notice">
+                Novo por aqui?{' '}
+                <button type="button" className="link-btn" onClick={() => setActiveForm('register')}>
+                  Crie uma conta
+                </button>
+              </p>
+            </div>
+          )}
+
+          {/* FORMULÁRIO DE CADASTRO */}
+          {activeForm === 'register' && (
+            <div className="form-wrapper">
+              <h2>Crie sua conta</h2>
+              <form onSubmit={(e) => handleSubmit(e, 'register')}>
+                <div className="input-box">
+                  <label htmlFor="name-reg">Nome Completo</label>
+                  <input type="text" id="name-reg" placeholder="Seu nome" required />
+                </div>
+
+                <div className="input-box">
+                  <label htmlFor="email-reg">E-mail</label>
+                  <input type="email" id="email-reg" placeholder="seu@email.com" required />
+                </div>
+                
+                <div className="input-box">
+                  <label htmlFor="password-reg">Senha</label>
+                  <input type="password" id="password-reg" placeholder="Mínimo 8 caracteres" required />
+                </div>
+
+                <button type="submit" className="btn-primary">CADASTRAR</button>
+              </form>
+              <p className="switch-notice">
+                Já tem conta?{' '}
+                <button type="button" className="link-btn" onClick={() => setActiveForm('login')}>
+                  Faça login
+                </button>
+              </p>
+            </div>
+          )}
+
         </div>
-
-        <div className="input-group">
-          <label htmlFor="password">Senha</label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Digite sua senha"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-
-        <button type="submit" className="login-btn">Entrar</button>
-
-        <div className="login-footer">
-          <p>Não tem uma conta? <a href="/register">Cadastre-se</a></p>
-        </div>
-      </form>
+      </div>
     </div>
   );
 }
