@@ -36,21 +36,22 @@ export default function Header() {
             <div className="col-3">
               <div className="d-flex justify-content-end gap-3">
 
-                <button className="header-circle-btn">
+                <Link to="/favoritos" className="header-circle-btn">
                   <i className="bi bi-heart"></i>
-                </button>
+                </Link>
 
-                <button className="header-circle-btn">
+                <Link to="/Perfil" className="header-circle-btn">
                   <i className="bi bi-person"></i>
-                </button>
+                </Link>
 
-                <button className="header-circle-btn position-relative">
+                <Link
+                to="/carrinho"
+                className="header-circle-btn position-relative">
                   <i className="bi bi-bag"></i>
-
                   <span className="cart-badge">
                     0
                   </span>
-                </button>
+                </Link>
 
               </div>
             </div>
@@ -75,6 +76,15 @@ export default function Header() {
           </div>
 
         </div>
+
+
+        <nav className="header-nav">
+          <Link to="/">Início</Link>
+          <Link to="/produtos">Produtos</Link>
+          <Link to="/masculino">Masculino</Link>
+          <Link to="/feminino">Feminino</Link>
+          <Link to="/contato">Contato</Link>
+        </nav>
 
         {/* Barra de benefícios */}
         <div className="benefits-bar">

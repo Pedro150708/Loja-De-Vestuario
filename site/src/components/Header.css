@@ -19,6 +19,24 @@
   color: inherit;
 }
 
+.header-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 20px 0;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.header-nav a:hover {
+  color: #0d3b66; /* azul profundo */
+}
+
 /* Botões circulares */
 
 .header-circle-btn {
