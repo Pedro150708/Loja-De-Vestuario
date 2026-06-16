@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 export default function Header() {
@@ -24,9 +25,11 @@ export default function Header() {
 
             {/* Logo */}
             <div className="col-6 text-center">
-              <h1 className="logo-text">
-                MONTCLAIR
-              </h1>
+              <Link to="/" className="logo-link">
+                <h1 className="logo-text">
+                  MONTCLAIR
+                </h1>
+              </Link>
             </div>
 
             {/* Direita */}
