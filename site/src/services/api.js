@@ -1,7 +1,24 @@
-// src/services/api.js
-
 import axios from "axios";
 
-export default axios.create({
-  baseURL: "http://localhost:5171/api",
+const api = axios.create({
+  baseURL: "https://localhost:5171/api"
 });
+
+api.interceptors.request.use(
+  (config) => {
+
+    const token =
+      localStorage.getItem("token");
+
+    if (token) {
+
+      config.headers.Authorization =
+        token;
+
+    }
+
+    return config;
+  }
+);
+
+export default api;
