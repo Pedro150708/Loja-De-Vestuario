@@ -166,7 +166,7 @@ export default function Header() {
     <ul className="navbar-mobile">
       <li><a href="">Início</a></li>
       <li><a href="Produtos">Produtos</a></li>
-      <li><a href="Acessorios">Masculino</a></li>
+      <li><a href="RoupaMasculina">Masculino</a></li>
       <li><a href="RoupaFeminina">Feminino</a></li>
       <li><a href="AlterarSenha">Contato</a></li>
     </ul>
