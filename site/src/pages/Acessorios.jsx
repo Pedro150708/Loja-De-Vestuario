@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState } from "react";
 import { productsData } from './data/productsData';
 import './Acessorios.css'; // Importando seu CSS estilizado
 
