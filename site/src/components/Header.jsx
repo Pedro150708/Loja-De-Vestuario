@@ -164,11 +164,11 @@ export default function Header() {
   <div className="offcanvas-body">
 
     <ul className="navbar-mobile">
-      <li><a href="Home">Início</a></li>
+      <li><a href="">Início</a></li>
       <li><a href="Produtos">Produtos</a></li>
-      <li><a href="">Masculino</a></li>
-      <li><a href="">Feminino</a></li>
-      <li><a href="">Contato</a></li>
+      <li><a href="Acessorios">Masculino</a></li>
+      <li><a href="RoupaFeminina">Feminino</a></li>
+      <li><a href="AlterarSenha">Contato</a></li>
     </ul>
 
   </div>
