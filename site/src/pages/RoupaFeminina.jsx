@@ -4,6 +4,16 @@ import Footer from '../components/Footer';
 import ProductCard from '../components/ProductCard';
 import './RoupaFeminina.css';
 
+// 1. DECLARAÇÃO DOS PRODUTOS (Criados aqui para corrigir o erro de variável indefinida)
+// Substitua pelos seus dados reais ou mude para um "import" se estiverem em outro arquivo.
+const INITIAL_PRODUCTS = [
+  { id: 1, name: 'Vestido Midi Floral', category: 'vestidos', price: 159.90, image: 'https://via.placeholder.com/150' },
+  { id: 2, name: 'Calça Alfaiataria', category: 'calcas', price: 189.90, image: 'https://via.placeholder.com/150' },
+  { id: 3, name: 'Pijama de Cetim', category: 'pijamas', price: 120.00, image: 'https://via.placeholder.com/150' },
+  { id: 4, name: 'Camisa Linho', category: 'camisas', price: 145.00, image: 'https://via.placeholder.com/150' },
+  { id: 5, name: 'Casaco Sobretudo', category: 'casacos', price: 299.90, image: 'https://via.placeholder.com/150' }
+];
+
 function RoupaFeminina() {
   const [darkMode, setDarkMode] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState('all');
