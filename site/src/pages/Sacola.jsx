@@ -1,20 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./Sacola.css";
-import { getImagemUrl } from "../utils/imageHelper";
 
 export default function Sacola() {
-  const [itens, setItens] = useState([]);
+  const [itens, setItens] = useState(() => {
+    return JSON.parse(localStorage.getItem("sacola")) || [];
+  });
 
   const API_URL = "http://localhost:5000";
-
-  useEffect(() => {
-    carregarSacola();
-  }, []);
-
-  function carregarSacola() {
-    const data = JSON.parse(localStorage.getItem("sacola")) || [];
-    setItens(data);
-  }
 
   function removerItem(id) {
     const nova = itens.filter((item) => item.id !== id);
