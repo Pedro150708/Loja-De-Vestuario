@@ -1,125 +1,112 @@
-import { useState } from 'react';
-import './sacola.css'; // Ajuste o caminho do seu arquivo CSS conforme necessário
+import { useEffect, useState } from "react";
+import "./Sacola.css";
+import { getImagemUrl } from "../utils/imageHelper";
 
 export default function Sacola() {
-  // Estado para controlar a abertura do menu dropdown
-  const [menuAberto, setMenuAberto] = useState(false);
+  const [itens, setItens] = useState([]);
 
-  // Estado para gerenciar os itens da sacola (simulação inicial)
-  // No mundo real, você provavelmente receberia isso via Context API, Redux ou LocalStorage
-  const [itensCarrinho] = useState([
-    {
-      id: 1,
-      titulo: "Conjunto Aurora de Alfaiataria Bege",
-      preco: 429.00,
-      quantidade: 1,
-      img: "fotos/roupafeminina1.jpg"
-    }
-  ]);
+  const API_URL = "http://localhost:5000";
 
-  // Função para calcular o total da compra automaticamente
-  const calcularTotal = () => {
-    return itensCarrinho.reduce((acc, item) => acc + (item.preco * item.quantidade), 0);
-  };
+  useEffect(() => {
+    carregarSacola();
+  }, []);
 
-  // Função para simular a finalização da compra
-  const finalizarCompra = () => {
-    alert("Compra finalizada com sucesso! 🛍️");
-  };
+  function carregarSacola() {
+    const data = JSON.parse(localStorage.getItem("sacola")) || [];
+    setItens(data);
+  }
+
+  function removerItem(id) {
+    const nova = itens.filter((item) => item.id !== id);
+    setItens(nova);
+    localStorage.setItem("sacola", JSON.stringify(nova));
+  }
+
+  function alterarQuantidade(id, delta) {
+    const nova = itens.map((item) => {
+      if (item.id === id) {
+        const qtd = item.quantidade + delta;
+        return { ...item, quantidade: qtd > 0 ? qtd : 1 };
+      }
+      return item;
+    });
+
+    setItens(nova);
+    localStorage.setItem("sacola", JSON.stringify(nova));
+  }
+
+  function getImagemUrl(imagem) {
+    if (!imagem) return "/placeholder.png";
+    if (imagem.startsWith("http")) return imagem;
+    return `${API_URL}/produtos/${imagem}`;
+  }
+
+  const total = itens.reduce(
+    (acc, item) => acc + item.preco * item.quantidade,
+    0
+  );
 
   return (
-    <div className="sacola-container">
-      {/* HEADER */}
-      <header>
-        <div className="more-menu">
-          <div 
-            className="icon-btn" 
-            id="moreBtn"
-            onClick={() => setMenuAberto(!menuAberto)}
-          >
-            <i className="fa-solid fa-ellipsis"></i>
-          </div>
+    <div className="container mt-4">
+      <h2>Sacola</h2>
 
-          {/* Menu Dropdown condicional via React */}
-          {menuAberto && (
-            <div className="dropdown-menu" id="dropdownMenu" style={{ display: 'block' }}>
-              <a href="#">Feminino</a>
-              <a href="#">Masculino</a>
-              <a href="#">Calçados</a>
-              <a href="#">Acessórios</a>
-              <a href="#">Bolsas</a>
-              <a href="#">Perfumes</a>
-              <a href="#">Joias</a>
-              <a href="#">Promoções</a>
-            </div>
-          )}
-        </div>
+      {itens.length === 0 ? (
+        <p>Sua sacola está vazia.</p>
+      ) : (
+        <>
+          {itens.map((item) => (
+            <div key={item.id} className="card mb-3 p-3">
+              <div className="d-flex gap-3 align-items-center">
 
-        <div className="icon-btn theme-toggle" id="theme-toggle">
-          <i className="fa-solid fa-moon"></i>
-        </div>
+                <img
+                  src={getImagemUrl(item.imagem)}
+                  alt={item.nome}
+                  style={{
+                    width: "90px",
+                    height: "90px",
+                    objectFit: "cover",
+                    borderRadius: "8px"
+                  }}
+                />
 
-        <div className="search-box">
-          <i className="fa-solid fa-magnifying-glass"></i>
-          <input type="text" placeholder="Digite o que você procura..." />
-        </div>
+                <div className="flex-grow-1">
+                  <h5>{item.nome}</h5>
+                  <p>R$ {item.preco}</p>
 
-        <div className="logo">
-          MONTCLAIR
-        </div>
+                  <div className="d-flex align-items-center gap-2">
+                    <button
+                      className="btn btn-sm btn-secondary"
+                      onClick={() => alterarQuantidade(item.id, -1)}
+                    >
+                      -
+                    </button>
 
-        <div className="icon-btn">
-          <i className="fa-regular fa-message"></i>
-        </div>
+                    <span>{item.quantidade}</span>
 
-        <div className="icon-btn">
-          <i className="fa-regular fa-heart"></i>
-        </div>
-
-        <div className="icon-btn">
-          <i className="fa-regular fa-user"></i>
-        </div>
-
-        <div className="icon-btn cart">
-          <i className="fa-solid fa-bag-shopping"></i>
-          <div className="cart-count" id="cart-count">
-            {itensCarrinho.reduce((acc, item) => acc + item.quantidade, 0)}
-          </div>
-        </div>
-      </header>
-
-      {/* CONTEÚDO PRINCIPAL */}
-      <div className="container">
-        <h2>Minha Sacola</h2>
-
-        {/* Área onde os itens do carrinho serão renderizados */}
-        <div id="carrinho">
-          {itensCarrinho.length === 0 ? (
-            <p className="carrinho-vazio">Sua sacola está vazia.</p>
-          ) : (
-            itensCarrinho.map((item) => (
-              <div key={item.id} className="cart-item" style={{ display: 'flex', alignItems: 'center', marginBottom: '15px' }}>
-                <img src={item.img} alt={item.titulo} style={{ width: '50px', marginRight: '15px' }} />
-                <div>
-                  <h4>{item.titulo}</h4>
-                  <p>{item.quantidade}x - R$ {item.preco.toFixed(2)}</p>
+                    <button
+                      className="btn btn-sm btn-secondary"
+                      onClick={() => alterarQuantidade(item.id, 1)}
+                    >
+                      +
+                    </button>
+                  </div>
                 </div>
+
+                <button
+                  className="btn btn-danger"
+                  onClick={() => removerItem(item.id)}
+                >
+                  Remover
+                </button>
+
               </div>
-            ))
-          )}
-        </div>
+            </div>
+          ))}
 
-        <div className="total">
-          Total: R$ <span id="total">{calcularTotal().toFixed(2)}</span>
-        </div>
-      </div>
-
-      {/* ÁREA DE CHECKOUT */}
-      <div className="checkout-area">
-        <button className="checkout-btn" onClick={finalizarCompra}>
-          🛍️ Finalizar compra
-        </button>
-      </div>
+          <hr />
+          <h4>Total: R$ {total.toFixed(2)}</h4>
+        </>
+      )}
     </div>
   );
 }
