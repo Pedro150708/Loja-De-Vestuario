@@ -51,7 +51,7 @@ body.dark-mode .card-product-name, .card-product-subtext{
   color: #ddd;
 }
 
-body.dark-mode .card-size-badge, .card-quantity-selector, .qty-display-value, .qty-action-btn{
+body.dark-mode .card-size-badge{
   background-color: #460c1a;
   color: #ffffff;
 }

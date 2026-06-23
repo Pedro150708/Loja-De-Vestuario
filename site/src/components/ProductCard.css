@@ -39,6 +39,49 @@
   font-weight: bold;
 }
 
+.qty-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: white;
+  color: black;
+
+  border: none;
+  border-radius: 8px;
+
+  width: 40px;
+  height: 40px;
+
+  font-size: 22px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.qty-btn:hover {
+  background-color: rgb(116, 0, 27);
+  color: white;
+}
+
+.quantidade-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.quantidade-container span {
+  font-size: 22px;
+  font-weight: 600;
+
+  min-width: 20px;
+  text-align: center;
+}
+
 .btn-favorite {
   position: absolute;
   top: 16px;
@@ -68,7 +111,12 @@
   font-size: 22px;
   font-weight: 500;
   color: #111111;
+
   margin: 0;
+
+  line-height: 1.2;
+
+  min-height: 80px;
 }
 
 .card-price-block {
