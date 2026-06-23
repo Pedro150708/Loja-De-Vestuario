@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { productsData } from './data/productsData';
-import './Acessorios.css'; // Importando seu CSS estilizado
+import './Acessorios.css';
 
 export default function Acessorios() {
   // --- ESTADOS DA APLICAÇÃO ---
